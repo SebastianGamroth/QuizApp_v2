@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizApp</title>
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/script.js"></script>
+    <script src="./js/templates.js"></script>
+
+    <!-- Bootstrap file -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+
+<body onload="init(), includeHTML()">
+
+    <div class="progress">
+        <div class="progress-bar" id="progress-bar" role="progressbar" style="width: 0%;"></div>
+    </div>
+
+    <div class="quizContainer">
+        <div class="quizBox">
+            <div onclick="navBarButton()" class="navBarIcon" id="navBarIcon"><img src="./img/logoBar.png"></div>
+            <nav id="navHide" class="nav500">
+                <img src="./img/logoNav.png">
+                <div class="navContainer" id="navContainer">
+                </div>
+                <div class="navFooter" id="navFooter">
+                    <button class="regulationsButton" id="regulations_0" onclick="imprint()">Impressum</button>
+                    <button class="regulationsButton" id="regulations_1" onclick="privacy()">Datenschutz</button>
+                    <button class="regulationsButton" id="regulations_2" onclick="copyright()">Copyright</button>
+                </div>
+            </nav>
+
+            <div class="regulations d-none" id="imprint">
+                <div w3-include-html="./templates/imprint.html"></div>
+            </div>
+            <div class="regulations d-none" id="privacy">
+                <div w3-include-html="./templates/privacy.html"></div>
+            </div>
+            <div class="regulations d-none" id="copyright">
+                <div w3-include-html="./templates/copyright.html"></div>
+            </div>
+
+            <div class="anserContainer" id="answer">
+                <div class="questionsHeader">
+                    <h2 id="questionsHeader">Frage</h2>
+                </div>
+                <div class="cartContainer">
+                    <div class="anserCard" id="anserCard"></div>
+                </div>
+                <div class="questionsFooter">
+                    <span id="anserQuestion">x von x Fragen</span>
+                    <button onclick="nextQuestion()" id="buttonHide" type="button" class="btn" disabled>Nächste
+                        Frage</button>
+                </div>
+            </div>
+            <div class="quizMain" id="quizMain">
+                <h1>Willkommen <br> beim fantastischen Quiz</h1>
+                <h2>Wähle eine Kategorie</h2>
+                <h2 class="fontBlue" id="categoryName">...</h2>
+                <button onclick="startQuiz()" id="buttonHideSecond" type="button" class="btn" disabled>Start</button>
+            </div>
+            <div class="gameOver" id="gameOver"></div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
